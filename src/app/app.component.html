@@ -9,7 +9,8 @@
       <ul class="list-group">
         <li 
         *ngFor="let registro of registroArray"
-        class="list-group-item list-group-item-action">
+        class="list-group-item list-group-item-action" (click)="abrirEdicion(registro)"
+        [class.active]="registro == selectedRegistro">
         <span class="bg-primary text-white">{{ registro.id }}</span>{{ registro.nombre }} - {{ registro.pais}}
         </li>
       </ul>
@@ -26,6 +27,11 @@
               <input id="my-input" [(ngModel)]="selectedRegistro.pais" class="form-control" placeholder="Ingresa el pais" type="text">
             </div>
             <button (click)="agregarOeditar()" class="btn btn-primary">Submit</button>
+            <button
+            *ngIf="selectedRegistro.id != 0"
+            class="btn btn-danger"
+            (click)="delete()">
+            Delete</button>
         </div>
       </div>
   </div>

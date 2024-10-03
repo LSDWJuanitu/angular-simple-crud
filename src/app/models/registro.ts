@@ -1,5 +1,5 @@
 export class Registro {
-    id = 0;
-    nombre = "";
-    pais = "";
+    id: number = 0;
+    nombre: string = "";
+    pais: string = "";
 }
