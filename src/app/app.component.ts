@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { Registro } from './models/registro';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
