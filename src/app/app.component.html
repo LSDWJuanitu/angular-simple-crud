@@ -1,17 +1,19 @@
-<nav class="navbar navbar-dark bg-danger p-3">
-  <a class="navbar-brand" href="/">
-    Angular Simple CRUD
-  </a>
+<nav class="navbar navbar-dark bg-black justify-content-center">
+  
+    <a class="navbar-brand text-uppercase">
+      Angular Simple CRUD
+    </a>
+  
 </nav>
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-8 mt-4">
       <ul class="list-group">
         <li 
         *ngFor="let registro of registroArray"
         class="list-group-item list-group-item-action" (click)="abrirEdicion(registro)"
         [class.active]="registro == selectedRegistro">
-        <span class="bg-primary text-white">{{ registro.id }}</span>{{ registro.nombre }} - {{ registro.pais}}
+        <span class=""> {{  registro.id  }} </span> {{ registro.nombre }} - {{ registro.pais}}
         </li>
       </ul>
       <div class="card mt-4">
@@ -26,12 +28,12 @@
             <div class="form-group">
               <input id="my-input" [(ngModel)]="selectedRegistro.pais" class="form-control" placeholder="Ingresa el pais" type="text">
             </div>
-            <button (click)="agregarOeditar()" class="btn btn-primary">Submit</button>
+            <button (click)="agregarOeditar()" class="btn btn-primary">Agregar / Modificar</button>
             <button
             *ngIf="selectedRegistro.id != 0"
             class="btn btn-danger"
             (click)="delete()">
-            Delete</button>
+            Eliminar</button>
         </div>
       </div>
   </div>

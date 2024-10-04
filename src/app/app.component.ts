@@ -23,9 +23,17 @@ export class AppComponent {
   selectedRegistro: Registro = new Registro();
 
 agregarOeditar(){
-if(this.selectedRegistro.id === 0){
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Trabajando!",
+    showConfirmButton: false,
+    timer: 1500
+  });
+  if(this.selectedRegistro.id === 0){
   this.selectedRegistro.id = this.registroArray.length + 1;
   this.registroArray.push(this.selectedRegistro);
+  
 }
 
 this.selectedRegistro = new Registro()
@@ -38,9 +46,26 @@ abrirEdicion(registro: Registro){
 }
 
 delete(){
-    if(confirm("SweetAlert2 is working!")){
+
+  Swal.fire({
+    title: "Estas seguro que lo quieres eliminar?",
+    text: "No podras recuperarlo!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    cancelButtonText: "Cancelar",
+    confirmButtonText: "Eliminar registro!"
+  }).then((result) => {
+    if (result.isConfirmed) {
       this.registroArray = this.registroArray.filter(x => x != this.selectedRegistro);
-      this.selectedRegistro = new Registro()
+      this.selectedRegistro = new Registro();
+      Swal.fire({
+        title: "Eliminado!",
+        text: "Tu registro a sido eliminado.",
+        icon: "success"
+      });
     }
+  });
   }
 }
